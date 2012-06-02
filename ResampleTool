@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# ****************************************
+# * ModisTool                            *
+# * Shell script for running the MRT GUI *
+# ****************************************
+
+# Set the MRT_HOME environmental var to the MRT installation directory.
+
+MRT_HOME="/Applications/MRT"
+export MRT_HOME
+
+# Set the MRT_DATA_DIR environmental var to the MRT data directory.
+MRT_DATA_DIR="$MRT_HOME/data"
+export MRT_DATA_DIR
+
+# Set the PATH environment variable to include the MRT executables.
+
+PATH="$MRT_HOME/bin:$PATH"
+export PATH
+
+resample -p $1

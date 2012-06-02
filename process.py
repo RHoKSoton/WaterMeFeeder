@@ -4,11 +4,10 @@ import numpy as np
 import pymysql
 pymysql.install_as_MySQLdb()
 
-MRT_BIN_PATH = "/Applications/MRT/bin"
 IMAGE_PATH = "/Users/robin/Documents/RHoK"
 
 def get_from_ftp(date, h, v):
-	print mrt_path
+	
 
 def resample(hdf_filename):
 	# Edit parameter file appropriately
@@ -21,7 +20,7 @@ def resample(hdf_filename):
 	outfile.close()
 	
 	# Run MRT resample tool
-	os.system("%s/ResampleTool %s/image.prm" % (MRT_BIN_PATH, IMAGE_PATH)) 
+	os.system("./ResampleTool %s/image.prm" % (IMAGE_PATH)) 
 
 def add_to_db(basename):
 	b1_tiff = gdal.Open("%s.sur_refl_b01_1.tif" % basename)
