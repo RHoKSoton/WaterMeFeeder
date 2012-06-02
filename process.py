@@ -7,7 +7,7 @@ pymysql.install_as_MySQLdb()
 MRT_BIN_PATH = "/Applications/MRT/bin"
 IMAGE_PATH = "/Users/robin/Documents/RHoK"
 
-def get_from_ftp():
+def get_from_ftp(date, h, v):
 	print mrt_path
 
 def resample(hdf_filename):

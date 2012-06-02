@@ -1,0 +1,30 @@
+This is the code from the WaterMe project at #RHoKSoton.
+
+To run this code you will need:
+* MODIS Reprojection Tool https://lpdaac.usgs.gov/tools/modis_reprojection_tool
+* Java (as required by the MRT above)
+* Python (to run this code) with the following modules:
+	gdal
+	pymysql
+	numpy
+* A MySQL database with write permissions
+
+The table you will need must be as below:
+
+CREATE TABLE IF NOT EXISTS `Data` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `latitude` float NOT NULL,
+  `longitude` float NOT NULL,
+  `bandOne` int(5) NOT NULL,
+  `bandTwo` int(5) NOT NULL,
+  `bandThree` int(5) NOT NULL,
+  `bandFour` int(5) NOT NULL,
+  `bandFive` int(11) NOT NULL,
+  `bandSix` int(11) NOT NULL,
+  `bandSeven` int(11) NOT NULL,
+  `vegetation` float NOT NULL,
+  `cloud` tinyint(1) NOT NULL,
+  `NDWI` float NOT NULL,
+  `timeTaken` datetime NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
