@@ -30,6 +30,10 @@ def do_stuff():
 
 	
 def run_whole_process(year, month, day, h, v):
+	"""Download, process and insert into the database all values from the specified MODIS image.
+	The image is specified by the year, month and day of the image, as the horizontal and vertical
+	co-ordinates in the MODIS grid reference system (see http://www.yale.edu/ceo/DataArchive/modis.html)
+	"""
 	filename = get_from_ftp(year, month, day, h, v)
 	#filename = "MOD09GA.A2006143.h17v03.005.2008320021945.hdf"
 	resample(filename)
@@ -37,6 +41,11 @@ def run_whole_process(year, month, day, h, v):
 	add_to_db("/Users/robin/Documents/RHoK/data/MODIS_Reflectance", date)
 
 def get_from_ftp(year, month, day, h, v):
+	"""Given a year, month, day and horizontal and vertical co-ordinate in the MODIS grid reference system,
+	download the MOD09GA product from the FTP site.
+	
+	This checks to see if the destination local file exists, and if so uses it rather than downloading again.
+	"""
 	ftp = FTP("e4ftl01.cr.usgs.gov")
 	ftp.login()
 	files = ftp.nlst("MOLT/MOD09GA.005/%02d.%02d.%02d/" % (year, month, day))
@@ -60,6 +69,13 @@ def get_from_ftp(year, month, day, h, v):
 	return file
 
 def resample(hdf_filename):
+	"""Resample the given HDF filename to a WGS84 Geographic Co-ordinate System, storing the outputs
+	as GeoTiffs.
+	
+	Uses the parameter values stored in base_param.prm, adding INPUT_FILENAME with the appropriate HDF
+	file at the top.
+	
+	"""
 	# Edit parameter file appropriately
 	f = open("base_param.prm", "r")
 	lines = f.readlines()
@@ -73,7 +89,15 @@ def resample(hdf_filename):
 	os.system("./ResampleTool %s/image.prm" % (ROOT_PATH)) 
 
 def add_to_db(basename, date):
+	"""Add the data from the MODIS GeoTIFF files with the basename given to the database.
 	
+	Values of database parameters are given at the top of this script. This assumes the reprojection
+	has been done using the resample function in this file, so that the correct output bands are available.
+	
+	This ignores crazy values (< 0.01% reflectance), clouds and non-land pixels, using the appropriate masks in the
+	MODIS data.
+	
+	"""
 	print "Running add to db"
 	quality_tiff = gdal.Open("%s.QC_500m_1.tif" % basename)
 	b1_tiff = gdal.Open("%s.sur_refl_b01_1.tif" % basename)
@@ -149,6 +173,3 @@ def add_to_db(basename, date):
 		#print sql_string
 		print cursor.execute(sql_string)
 		conn.commit()
-		
-#hdf_filename = "/Users/robin/Downloads/MOD09GA.A2012148.h17v03.005.2012150062118.hdf"
-#resample(hdf_filename)

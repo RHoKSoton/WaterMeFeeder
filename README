@@ -9,12 +9,14 @@ To run this code you will need:
 	numpy
 * A MySQL database with write permissions
 
+You will need to fill in the paths and DB parameters at the top of the process.py file.
+
 The table you will need must be as below:
 
 CREATE TABLE IF NOT EXISTS `Data` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `latitude` float NOT NULL,
-  `longitude` float NOT NULL,
+  `latitude` DECIMAL(8, 4) NOT NULL,
+  `longitude` DECIMAL(8,4) NOT NULL,
   `bandOne` int(5) NOT NULL,
   `bandTwo` int(5) NOT NULL,
   `bandThree` int(5) NOT NULL,
