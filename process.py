@@ -11,12 +11,24 @@ pymysql.install_as_MySQLdb()
 ROOT_PATH = "/Users/robin/Documents/RHoK/"
 IMAGE_PATH = "/Users/robin/Documents/RHoK/data"
 
-def do_stuff():
-	run_whole_process(2012, 5, 27, 17, 8)
-	run_whole_process(2012, 5, 27, 18, 8)
-	run_whole_process(2012, 5, 28, 17, 8)
-	run_whole_process(2012, 5, 28, 18, 8)
+MYSQL_SERVER = "31.222.179.91"
+MYSQL_USER = "ndwi"
+MYSQL_PASSWD = "datandwi2012"
+MYSQL_DB = "RHoK_NDWI"
 
+def do_stuff():
+	#run_whole_process(2012, 5, 20, 17, 8)
+	#run_whole_process(2012, 5, 27, 18, 8)
+	#run_whole_process(2012, 5, 28, 17, 8)
+	#run_whole_process(2012, 5, 28, 18, 8)
+	
+	for day in range(13, 27):
+		print day
+		run_whole_process(2012, 5, day, 17, 8)
+		run_whole_process(2012, 5, day, 18, 8)
+
+
+	
 def run_whole_process(year, month, day, h, v):
 	filename = get_from_ftp(year, month, day, h, v)
 	#filename = "MOD09GA.A2006143.h17v03.005.2008320021945.hdf"
@@ -89,7 +101,7 @@ def add_to_db(basename, date):
 	
 	ignore_below = 100
 	
-	conn = pymysql.connect(host="31.222.179.91", user="ndwi", passwd="datandwi2012", db="RHoK_NDWI")
+	conn = pymysql.connect(host=MYSQL_SERVER, user=MYSQL_USER, passwd=MYSQL_PASSWD, db=MYSQL_DB)
 	cursor = conn.cursor()
 	
 	
