@@ -1,4 +1,5 @@
-WaterMe Make Contemporary NDWI data available over the internet and to provide an API to allow further visualisations of the dataset 
+WaterMe
+Aim: To make contemporary NDWI data available over the internet and to provide an API to allow further visualisations of the dataset 
 
 Modis data is collected on every region of the globe twice daily by a pair of satellites, we pick ModaT which provides images taken at 10.30 am, this was selected to give the best quality results. 
 
