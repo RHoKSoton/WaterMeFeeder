@@ -24,9 +24,18 @@ def do_stuff():
 	
 	for day in range(13, 27):
 		print day
-		run_whole_process(2012, 5, day, 17, 8)
-		run_whole_process(2012, 5, day, 18, 8)
+		run_whole_process(2012, 5, day, 12, 9)
+		run_whole_process(2012, 5, day, 11, 9)
 
+	#for day in range(1, 9):
+	#	print day
+	#	run_whole_process(2012, 5, day, 17, 8)
+	#	run_whole_process(2012, 5, day, 18, 8)
+		
+	#for day in range(29, 32):
+	#	print day
+	#	run_whole_process(2012, 5, day, 17, 8)
+	#	run_whole_process(2012, 5, day, 18, 8)
 
 	
 def run_whole_process(year, month, day, h, v):
