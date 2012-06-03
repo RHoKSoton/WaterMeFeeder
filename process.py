@@ -11,10 +11,10 @@ pymysql.install_as_MySQLdb()
 ROOT_PATH = "/Users/robin/Documents/RHoK/"
 IMAGE_PATH = "/Users/robin/Documents/RHoK/data"
 
-MYSQL_SERVER = "31.222.179.91"
-MYSQL_USER = "ndwi"
-MYSQL_PASSWD = "datandwi2012"
-MYSQL_DB = "RHoK_NDWI"
+MYSQL_SERVER = ""
+MYSQL_USER = ""
+MYSQL_PASSWD = ""
+MYSQL_DB = ""
 
 def do_stuff():
 	#run_whole_process(2012, 5, 20, 17, 8)
