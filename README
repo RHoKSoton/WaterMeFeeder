@@ -1,4 +1,10 @@
-Aim: To extract and visualise NDWI data processed from raw Modis Data
+WaterMe Make Contemporary NDWI data available over the internet and to provide an API to allow further visualisations of the dataset 
+
+Modis data is collected on every region of the globe twice daily by a pair of satellites, we pick ModaT which provides images taken at 10.30 am, this was selected to give the best quality results. 
+
+The Modis data is presented as a series of files, groups of 3 files each reading, a JPG of visible light, an xml file, and an HDF file that stores data specifc to wavelength bands, for our purposes bandOne and bandTwo are used to calculate an NDWI value, this value is a good estimate of the amount of water present in vegetation itself a good indicator of the effect of water shortages.
+
+An API allows for future refinements. Project to use NASA Modis Geo Imaging Data To Detect Drought Goal: Use Modi NDWI (Normalized Difference Water Index) WaterMe #rhok #rhoksoton robin ben pete tudor +2 (sry! not great with names!)
 
 This is the code from the WaterMe project at #RHoKSoton.
 
