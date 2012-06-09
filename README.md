@@ -28,20 +28,22 @@ You will need to fill in the paths and DB parameters at the top of the process.p
 
 The table you will need must be as below:
 
-    CREATE TABLE IF NOT EXISTS `Data` (
-      `ID` int(11) NOT NULL AUTO_INCREMENT,
-      `latitude` DECIMAL(8, 4) NOT NULL,
-      `longitude` DECIMAL(8,4) NOT NULL,
-      `bandOne` int(5) NOT NULL,
-      `bandTwo` int(5) NOT NULL,
-      `bandThree` int(5) NOT NULL,
-      `bandFour` int(5) NOT NULL,
-      `bandFive` int(11) NOT NULL,
-      `bandSix` int(11) NOT NULL,
-      `bandSeven` int(11) NOT NULL,
-      `vegetation` float NOT NULL,
-      `cloud` tinyint(1) NOT NULL,
-      `NDWI` float NOT NULL,
-      `timeTaken` datetime NOT NULL,
-      PRIMARY KEY (`ID`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+```SQL
+CREATE TABLE IF NOT EXISTS `Data` (
+	`ID` int(11) NOT NULL AUTO_INCREMENT,
+	`latitude` DECIMAL(8, 4) NOT NULL,
+	`longitude` DECIMAL(8,4) NOT NULL,
+	`bandOne` int(5) NOT NULL,
+	`bandTwo` int(5) NOT NULL,
+	`bandThree` int(5) NOT NULL,
+	`bandFour` int(5) NOT NULL,
+	`bandFive` int(11) NOT NULL,
+	`bandSix` int(11) NOT NULL,
+	`bandSeven` int(11) NOT NULL,
+	`vegetation` float NOT NULL,
+	`cloud` tinyint(1) NOT NULL,
+	`NDWI` float NOT NULL,
+	`timeTaken` datetime NOT NULL,
+	PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+```
