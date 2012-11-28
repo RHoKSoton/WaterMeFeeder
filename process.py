@@ -8,13 +8,13 @@ import datetime
 import pymysql
 pymysql.install_as_MySQLdb()
 
-ROOT_PATH = "/Users/robin/Documents/RHoK/"
-IMAGE_PATH = "/Users/robin/Documents/RHoK/data"
+ROOT_PATH = "/home/data"
+IMAGE_PATH = "/home/data"
 
-MYSQL_SERVER = ""
-MYSQL_USER = ""
-MYSQL_PASSWD = ""
-MYSQL_DB = ""
+MYSQL_SERVER = "localhost"
+MYSQL_USER = "root"
+MYSQL_PASSWD = "Bubbles1"
+MYSQL_DB = "RHoK_NDWI"
 
 def do_stuff():
 	#run_whole_process(2012, 5, 20, 17, 8)
@@ -47,7 +47,7 @@ def run_whole_process(year, month, day, h, v):
 	#filename = "MOD09GA.A2006143.h17v03.005.2008320021945.hdf"
 	resample(filename)
 	date = datetime.datetime(year, month, day)
-	add_to_db("/Users/robin/Documents/RHoK/data/MODIS_Reflectance", date)
+	add_to_db("/home/data", date)
 
 def get_from_ftp(year, month, day, h, v):
 	"""Given a year, month, day and horizontal and vertical co-ordinate in the MODIS grid reference system,
