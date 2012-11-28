@@ -8,13 +8,13 @@ import datetime
 import pymysql
 pymysql.install_as_MySQLdb()
 
-ROOT_PATH = "/home/data"
-IMAGE_PATH = "/home/data"
+ROOT_PATH = ""
+IMAGE_PATH = ""
 
-MYSQL_SERVER = "localhost"
-MYSQL_USER = "root"
-MYSQL_PASSWD = "Bubbles1"
-MYSQL_DB = "RHoK_NDWI"
+MYSQL_SERVER = ""
+MYSQL_USER = ""
+MYSQL_PASSWD = ""
+MYSQL_DB = ""
 
 def do_stuff():
 	#run_whole_process(2012, 5, 20, 17, 8)
