@@ -8,7 +8,7 @@ import numpy as np
 """
 Author: Pete
 Date: 	28th November 2012
-Version: 0.2
+Version: 0.0.0
 
 {FEEDER} ~ Rewrite due to MRT dependance
 		 ~ Moving to GDAL for handling resampling, output and possible tile creation
